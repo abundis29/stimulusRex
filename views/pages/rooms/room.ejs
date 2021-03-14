@@ -1,0 +1,29 @@
+<!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"> -->
+
+<style>
+  turbo-frame {
+    display: block;
+    border: 3px solid plum;
+  }
+</style>
+
+
+<h1>ACA ES EL PINCHE CHAT ALV</h1>
+<a href="/rooms/new" data-turbo-frame="_top">NEW</a>
+<ul>
+  <% rooms.forEach(function(item,index){ %>
+    <a href="/rooms/<%= item.id %>/messages">
+      <li>
+        <%= item.name %>
+      </li>
+
+    </a>
+    <a href="/rooms/<%= item.id %>/edit" >EDIT</a>
+    <a href="/rooms/<%= item.id %>/delete">DELETE</a>
+
+    <% }) %>
+</ul>
+
+
+
+

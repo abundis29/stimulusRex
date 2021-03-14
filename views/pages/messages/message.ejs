@@ -1,0 +1,43 @@
+<style>
+  turbo-frame {
+    display: block;
+    border: 3px solid plum;
+  }
+</style>
+<turbo-frame id="room">
+
+  <h1>Aca es el.. <b> <em>
+        <%= room.name %>
+      </em></b>... ALV</h1>
+</turbo-frame>
+
+
+<form data-controller="message" action="/greet" method="post" enctype="multipart/form-data" data-action="message#sender"
+  autocomplete="off">
+
+  <ul>
+    <output data-target="message.result">
+
+      <% messages.forEach(function(item,index){ %>
+        <li>
+          <%= item.text %>
+        </li>
+      <% }) %>
+
+    </output>
+  </ul>
+  <label><input type="text" name="text">Enter Greeting</label>
+  <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+  <input type="hidden" name="owner" value="<%= room.id %>" />
+
+
+  <button>Send</button>
+
+
+
+
+
+
+</form>
+
+<a href="/rooms" data-turbo-frame="_top">BACK</a>

@@ -1,0 +1,18 @@
+<!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"> -->
+
+<style>
+
+turbo-frame{
+  display: block;
+  border: 1px solid red;
+}
+</style>
+
+<form data-controller="greet" action="/greet" method="post" enctype="multipart/form-data" data-action="greet#greeting"
+autocomplete="off">
+<label><input type="text" name="greeting">Enter Greeting</label>
+<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+<button>Send</button>
+<output data-target="greet.result"></output>
+</form>
+
