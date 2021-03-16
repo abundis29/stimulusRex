@@ -12,11 +12,10 @@
     <head>
       <meta charset="utf-8">
       <meta name="turbo-cache-control" content="no-cache">
-
-      <script src="http://localhost:1337/bundle.js" async></script>
-
     </head>
 
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!--Totally optional :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
 
     <!--
         Stylesheets and Preprocessors
@@ -38,13 +37,14 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
+    <link rel="stylesheet" href="/styles/bundle.css">
 
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/importer.css">
+    
     <!--STYLES END-->
   </head>
 
-  <body>
+  <body class="h-screen">
     <%- body %>
 
 
@@ -116,5 +116,7 @@
     <!--SCRIPTS-->
     <script src="/dependencies/sails.io.js"></script>
     <!--SCRIPTS END-->
+    <script src="/dependencies/bundle.js"></script>
+
   </body>
 </html>

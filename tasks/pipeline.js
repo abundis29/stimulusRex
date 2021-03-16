@@ -32,14 +32,15 @@
 // > you'll want to change `assets/styles/importer.less` instead.
 //
 var cssFilesToInject = [
-
   // Bring in `.css` files for themes and style guides (e.g. Bootstrap, Foundation)
   'dependencies/**/*.css',
 
   // All of the rest of your custom `.css` files will be injected here,
   // in no particular order.  To customize the ordering, add additional
   // items here, _above_ this one.
-  'styles/**/*.css'
+  'styles/**/*.css',
+  'styles/bundle.css',
+
 ];
 
 
@@ -64,10 +65,13 @@ var jsFilesToInject = [
   // Load `sails.io` before everything else.
   'dependencies/sails.io.js',
 
+
   // Bring in `.js` files for any other client-side JavaScript dependencies.
   // (e.g. Lodash, Vue.js, jQuery, Bootstrap, Ember, Angular, etc.)
   // > Be sure to list dependencies that depend on each other in the right order!
   'dependencies/**/*.js',
+  'dependencies/bunde.js',
+
 
   // All of the rest of your custom client-side js files will be injected here,
   // in no particular order.  To customize the ordering, add additional items
@@ -136,7 +140,9 @@ module.exports.jsFilesToInject = jsFilesToInject.map((jsPath)=>{
   if (jsPath[0] === '!') {
     return require('path').join('!' + tmpPath, jsPath.substr(1));
   }
+  console.log(require('path').join(tmpPath, jsPath))
   return require('path').join(tmpPath, jsPath);
+  
 });
 module.exports.templateFilesToInject = templateFilesToInject.map((tplPath)=>{
   // If we're ignoring the file, make sure the ! is at the beginning of the path

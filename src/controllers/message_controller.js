@@ -11,8 +11,6 @@ export default class extends Controller {
 
   sender(event) {
     event.preventDefault(); // disable form submit
-        console.log(`Hello, ${this.text}!`)
-
     const form = this.element;
 
     fetch(form.action, {
@@ -26,8 +24,6 @@ export default class extends Controller {
   }
 
   set result(text) {
-    console.log(text, "MONONO")
-
     this.resultTarget.innerHTML = `${text}`
   }
 }

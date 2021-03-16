@@ -1,29 +1,46 @@
-<!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet"> -->
+<div class="w-2/3 mx-auto">
+  <div class="bg-white shadow-md rounded my-6">
+    <table class="text-left w-full border-collapse">
+      <!--Border collapse doesn't work on this site yet but it's available in newer tailwind versions -->
+      <thead>
+        <tr>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+            Room</th>
+          <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">
+            Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% rooms.forEach(function(item,index){ %>
 
-<style>
-  turbo-frame {
-    display: block;
-    border: 3px solid plum;
-  }
-</style>
+          <tr class="hover:bg-grey-lighter">
+            <td class="py-4 px-6 border-b border-grey-light">
+              <%= item.name %>
+            </td>
+            <td class="py-4 px-6 border-b border-grey-light">
+              <a href="/rooms/<%= item.id %>/messages"
+                class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Edit</a>
+              <a href="/rooms/<%= item.id %>/messages"
+                class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark">View</a>
+            </td>
+          </tr>
 
-
-<h1>ACA ES EL PINCHE CHAT ALV</h1>
-<a href="/rooms/new" data-turbo-frame="_top">NEW</a>
-<ul>
-  <% rooms.forEach(function(item,index){ %>
-    <a href="/rooms/<%= item.id %>/messages">
-      <li>
-        <%= item.name %>
-      </li>
-
-    </a>
-    <a href="/rooms/<%= item.id %>/edit" >EDIT</a>
-    <a href="/rooms/<%= item.id %>/delete">DELETE</a>
-
-    <% }) %>
-</ul>
+          <% }) %>
+      </tbody>
+    </table>  
+  </div>
+</div>
 
 
 
 
+
+<div class="chat-notification">
+  <div class="chat-notification-logo-wrapper">
+    <img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
+  </div>
+  <div class="chat-notification-content">
+    <h4 class="chat-notification-title">ChitChat</h4>
+    <p class="chat-notification-message">You have a new message!</p>
+  </div>
+</div>

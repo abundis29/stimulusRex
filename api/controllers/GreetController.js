@@ -21,9 +21,11 @@ module.exports = {
     })
 
     const result = await ejs.render(`<% messages.forEach(function(item,index){ %>
-      <li>
-        <%= item.text %>
-      </li>
+      <div class="clearfix">
+          <div
+            class="bg-gray-300 w-3/4 mx-4 my-2 p-2 rounded-lg"
+          ><%= item.text %></div>
+        </div>
       <% }) %>`, {
         messages: messages,
     });

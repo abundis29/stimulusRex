@@ -23,6 +23,7 @@ module.exports = {
 
   fn: async function ({room_id}) {
     var messages = await Room.findOne({id: room_id}).populate('messages')
+   
     return {
       messages: messages.messages,
       room: messages

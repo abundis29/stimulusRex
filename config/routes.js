@@ -24,6 +24,10 @@ module.exports.routes = {
   'GET      /rooms/:room_id?': { action: 'rooms/view-room' },
   'GET      /rooms/:room_id?/messages': { action: 'messages/view-message' },
   'GET      /rooms/:room_id?/messages/:message_id?/edit': { action: 'messages/view-message' },
+  'GET      /login/': { action: 'entrance/view-login' },
+  'GET      /register/': { action: 'entrance/view-register' },
+
+
 
 
 
